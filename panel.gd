@@ -2,10 +2,15 @@ extends Panel
 
 var dragging := false
 var drag_offset := Vector2.ZERO
+var initial_position = global_position
+var open := false
 
 @onready var window := get_parent()
 
 
+func _ready() -> void:
+	window.hide()
+	
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
@@ -39,8 +44,20 @@ func _gui_input(event: InputEvent) -> void:
 
 
 func _on_button_pressed() -> void:
-	$"..".hide()
+	window.global_position = initial_position
+	window.hide()
+	open = false
 
 
 func _on_button_2_pressed() -> void:
-	$"..".hide()
+	window.hide()
+	open = false
+
+
+func _on_bar_button_pressed() -> void:
+	if open:
+		window.hide()
+		open = false
+	elif not open:
+		window.show()
+		open = true
