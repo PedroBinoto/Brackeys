@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c58q7k2nwm30h"]
 
 [ext_resource type="Script" uid="uid://bngpm41p5h77" path="res://panel.gd" id="2_62e2m"]
+[ext_resource type="Script" uid="uid://bbvg7vnlbcfwo" path="res://email_generator.gd" id="2_qtu10"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62e2m"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -94,6 +95,9 @@ grow_vertical = 2
 theme = SubResource("Theme_qtu10")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ee4bf")
 text = "X"
+
+[node name="Node" type="Node" parent="." unique_id=1815997497]
+script = ExtResource("2_qtu10")
 
 [connection signal="pressed" from="Panel/Button" to="Panel2/Panel" method="_on_bar_button_pressed"]
 [connection signal="gui_input" from="Panel2/Panel" to="." method="_gui_input"]
