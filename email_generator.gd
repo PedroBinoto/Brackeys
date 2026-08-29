@@ -14,10 +14,9 @@ func _ready() -> void:
 	var bgn_ptr = 0
 	#while(bgn_ptr != -1):
 		#bgn_ptr = parse(bgn_ptr)
-		
+	
 	print(content)
 	print(typeof(content))
-	
 
 #func parse(bgn_ptr) -> int:
 	#bgn_ptr = content.find("[", bgn_ptr)

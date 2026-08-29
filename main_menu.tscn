@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://b8yi33tt85ov"]
+
+[ext_resource type="Texture2D" uid="uid://cg1e4l0w8i1mp" path="res://icon.svg" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://b8vvsd3145xuu" path="res://main_menu.gd" id="1_7vrkn"]
+
+[node name="MainMenu" type="CanvasLayer" unique_id=525325159]
+script = ExtResource("1_7vrkn")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=552888700]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=780132903]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer" unique_id=793556555]
+layout_mode = 2
+texture = ExtResource("1_06t4h")
+
+[node name="LineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer" unique_id=1844307291]
+layout_mode = 2
+
+[node name="LineEdit2" type="LineEdit" parent="CenterContainer/VBoxContainer" unique_id=2137990676]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1261368930]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "LOGIN"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
