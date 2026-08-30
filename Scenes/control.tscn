@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c58q7k2nwm30h"]
 
 [ext_resource type="Texture2D" uid="uid://b3cnrsj1yq2lv" path="res://Graphics/Sprites/Windows/task_bar_main.png" id="1_qtu10"]
-[ext_resource type="Script" uid="uid://bngpm41p5h77" path="res://panel.gd" id="2_62e2m"]
+[ext_resource type="Script" uid="uid://bngpm41p5h77" path="res://Scripts/panel.gd" id="2_62e2m"]
 [ext_resource type="Texture2D" uid="uid://chyc8jspi4vwa" path="res://Graphics/Sprites/Windows/archives_window.png" id="2_ee4bf"]
-[ext_resource type="Script" uid="uid://bbvg7vnlbcfwo" path="res://email_generator.gd" id="2_qtu10"]
+[ext_resource type="Script" uid="uid://bbvg7vnlbcfwo" path="res://Scripts/email_generator.gd" id="2_qtu10"]
 [ext_resource type="FontFile" uid="uid://cm3cuvca6i5x5" path="res://unscii-8.ttf" id="4_fj5cn"]
 [ext_resource type="Texture2D" uid="uid://dy33bv2t0rjh7" path="res://Graphics/Sprites/Windows/email_secondary_window.png" id="5_kbped"]
 
