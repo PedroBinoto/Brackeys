@@ -1,0 +1,5 @@
+[Job],Data Scientist,Meta Analist
+[Company],Trust Corps
+[Years],3,4,5
+[Field],Stock Investing,Data Mining,Web Development
+[Project],Boolaflix,Matchsteel,Figure.io
