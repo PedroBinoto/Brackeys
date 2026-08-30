@@ -1,7 +1,6 @@
 extends Node
 
 @export var legit: bool = false
-@export var username := "Carlinhos"
 var content: String
 var legit_dict: Dictionary[String, StringList]
 var false_dict: Dictionary[String, StringList]
@@ -11,16 +10,20 @@ var dict: Dictionary[String, String] = {}
 func _ready() -> void:
 	
 	legit_dict = initialize_dicts("res://Text/legit.txt")
-	legit_dict.get_or_add("[Username]", StringList.new([username]))
+	legit_dict.get_or_add("[Username]", StringList.new([Globals.username]))
 	false_dict = initialize_dicts("res://Text/false.txt")
 	
-	generate_keywords()
-	replace_keywords()
+	generate_email(legit, "res://Text/Emails/teste.txt")
+
+
+func generate_email(legits, path):
+	generate_keywords(legits)
+	replace_keywords(path)
 	print(content)
+	%"Email Text".text = content
 
 func initialize_dicts(path) -> Dictionary[String, StringList]:
 	var tmp_dict: Dictionary[String, StringList] = {}
-	tmp_dict["fulano"] = StringList.new([username])
 	
 	var file := FileAccess.open(path, FileAccess.READ)
 	var fileString = file.get_as_text()
@@ -35,9 +38,10 @@ func initialize_dicts(path) -> Dictionary[String, StringList]:
 		tmp_dict.get_or_add(line[0], tmp_string_data)
 	return tmp_dict
 
-func generate_keywords() -> void:
-	#dict.get_or_add("[fulano]", [username])
-	if legit:
+func generate_keywords(legits) -> void:
+	dict.clear()
+	
+	if legits:
 		for key in legit_dict:
 			dict.get_or_add(key, legit_dict[key].list.pick_random())
 	else:
@@ -50,8 +54,8 @@ func generate_keywords() -> void:
 				dict.get_or_add(key, legit_dict[key].list.pick_random())
 			rng_counter += 1.0/false_dict.size()
 
-func replace_keywords() -> void:
-	var file := FileAccess.open("res://Text/Emails/teste.txt", FileAccess.READ)
+func replace_keywords(path) -> void:
+	var file := FileAccess.open(path, FileAccess.READ)
 	content = file.get_as_text()
 	for keyword in dict:
 		content = content.replace(keyword, dict[keyword])
@@ -64,6 +68,17 @@ func get_shuffled_dict(original: Dictionary[String, StringList]) -> Dictionary[S
 	for key in keys:
 		shuffled[key] = original[key]
 	return shuffled
+
+func evaluate_email(evaluation: bool):
+	if(evaluation == legit):
+		print("Well done")
+	elif (legit):
+		print("You've been fired")
+	else:
+		print("You've been hacked")
+	
+	legit = randi()%2
+	generate_email(legit, "res://Text/Emails/teste.txt")
 
 #func parse(bgn_ptr) -> int:
 	#bgn_ptr = content.find("[", bgn_ptr)
