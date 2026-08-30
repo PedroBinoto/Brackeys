@@ -72,10 +72,13 @@ func get_shuffled_dict(original: Dictionary[String, StringList]) -> Dictionary[S
 func evaluate_email(evaluation: bool):
 	if(evaluation == legit):
 		print("Well done")
+		Globals.win += 1
 	elif (legit):
 		print("You've been fired")
+		Globals.whiff += 1
 	else:
 		print("You've been hacked")
+		Globals.hacked += 1
 	
 	legit = randi()%2
 	generate_email(legit, "res://Text/Emails/teste.txt")

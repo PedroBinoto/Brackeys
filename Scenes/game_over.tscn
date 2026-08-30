@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://r2ahcl5r1mr1"]
+
+[ext_resource type="Texture2D" uid="uid://y0oibi5craui" path="res://Graphics/Sprites/Windows/archives_window_clean.png" id="1_8fo1c"]
+[ext_resource type="FontFile" uid="uid://cm3cuvca6i5x5" path="res://unscii-8.ttf" id="2_ek8ke"]
+[ext_resource type="Texture2D" uid="uid://bq6cg5og6rx8a" path="res://Graphics/Sprites/Windows/email_secondary_window_button_layout.png" id="3_ek8ke"]
+
+[sub_resource type="GDScript" id="GDScript_g4v7s"]
+resource_name = "game_over"
+script/source = "extends Control
+
+func _ready() -> void:
+	$Label2.text = \"You have been right \" + str(Globals.win) + \" times.\"
+	$Label3.text = \"You have been wrong \" + str(Globals.hacked + Globals.whiff) + \" times.\"
+	$Label4.text = \"You have been hacked \" + str(Globals.hacked) + \" times.\"
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://Scenes/main_menu.tscn\")
+"
+
+[node name="Control" type="Control" unique_id=1833185927]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_g4v7s")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1526893920]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 269.0
+texture = ExtResource("1_8fo1c")
+
+[node name="Label" type="Label" parent="." unique_id=186351554]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 11.0
+offset_right = 403.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ek8ke")
+text = "It's time to go home."
+
+[node name="Label2" type="Label" parent="." unique_id=1040712721]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 67.0
+offset_right = 456.0
+offset_bottom = 90.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_ek8ke")
+theme_override_font_sizes/font_size = 15
+text = "You have been right 99 times"
+
+[node name="Label3" type="Label" parent="." unique_id=1216317515]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 105.0
+offset_right = 456.0
+offset_bottom = 128.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ek8ke")
+theme_override_font_sizes/font_size = 15
+text = "You have been right 99 times"
+
+[node name="Label4" type="Label" parent="." unique_id=2038385266]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 145.0
+offset_right = 456.0
+offset_bottom = 168.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.627451, 0.1254902, 0.9411765, 1)
+theme_override_fonts/font = ExtResource("2_ek8ke")
+theme_override_font_sizes/font_size = 15
+text = "You have been right 99 times"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=836253272]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 203.0
+offset_right = 394.0
+offset_bottom = 243.0
+texture = ExtResource("3_ek8ke")
+
+[node name="Label5" type="Label" parent="." unique_id=1643469039]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -144.0
+offset_top = -58.0
+offset_right = 144.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.3515629, 0.3515629, 0.35156286, 1)
+theme_override_fonts/font = ExtResource("2_ek8ke")
+text = "Try again tomorrow"
+
+[node name="Button" type="Button" parent="Label5" unique_id=298741656]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -12.0
+offset_top = -10.0
+offset_right = 299.0
+offset_bottom = 30.0
+
+[connection signal="pressed" from="Label5/Button" to="." method="_on_button_pressed"]

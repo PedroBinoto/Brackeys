@@ -55,6 +55,7 @@ func _on_button_2_pressed() -> void:
 
 
 func _on_bar_button_pressed() -> void:
+	print("hiiiii")
 	if open:
 		window.hide()
 		open = false

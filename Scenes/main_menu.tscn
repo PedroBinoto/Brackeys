@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://b8yi33tt85ov"]
 
-[ext_resource type="Texture2D" uid="uid://cg1e4l0w8i1mp" path="res://icon.svg" id="1_06t4h"]
-[ext_resource type="Script" uid="uid://b8vvsd3145xuu" path="res://Scripts/main_menu.gd" id="1_7vrkn"]
+[ext_resource type="Script" uid="uid://b8vvsd3145xuu" path="res://Scripts/main_menu.gd" id="1_48xlc"]
+[ext_resource type="Texture2D" uid="uid://crb64ew0qgoha" path="res://Graphics/Sprites/Icons/profile_menu_icon-4x.png" id="2_48xlc"]
 
 [node name="MainMenu" type="CanvasLayer" unique_id=525325159]
-script = ExtResource("1_7vrkn")
+script = ExtResource("1_48xlc")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=552888700]
 anchors_preset = 15
@@ -18,7 +18,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer" unique_id=793556555]
 layout_mode = 2
-texture = ExtResource("1_06t4h")
+texture = ExtResource("2_48xlc")
 
 [node name="LineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer" unique_id=1844307291]
 layout_mode = 2
